@@ -25,6 +25,6 @@ router.post('/sensor_data/upload', isAuthenticated, upload.single('file'), new U
 // -- Routes USER --
 router.post('/auth', new AuthUserController().handle)
 router.get('/me', isAuthenticated, new DetailLoggedUserController().handle)
-router.post('/user', isAuthenticated, new CreateUserController().handle)
+router.post('/user', new CreateUserController().handle)
 
 export { router }

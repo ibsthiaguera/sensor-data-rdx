@@ -35,11 +35,36 @@
     background-color: var(--dark-900);
     align-items: center;
     border: 0;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 8px;
     color: var(--white);
     transition: all 0.5s;
     padding-right: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
+
+.containerPeriod {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.period {
+    display: flex;
+    background-color: var(--dark-900);
+    align-items: center;
+    border: 0;
+    font-size: 14px;
+    border-radius: 8px;
+    color: var(--white);
+    transition: all 0.5s;
+    padding: 6px 12px;
     margin-right: 8px;
     cursor: pointer;
 

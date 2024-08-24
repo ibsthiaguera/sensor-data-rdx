@@ -1,15 +1,16 @@
-import prismaClient from "../../prisma"
+import prismaClient from '../../prisma'
 
 class ListEquipmentService {
     async execute() {
-        
-        const sensorData = await prismaClient.equipment.findMany({
+        const equipmentData = await prismaClient.equipment.findMany({
             include: {
-                sensor_data: true
-            }
+                sensor_data: {
+                    orderBy: { timestamp: 'asc' }, // Include sensor_data with 'asc' order by timestamp
+                },
+            },
         })
 
-        return sensorData
+        return equipmentData
     }
 }
 

@@ -6,6 +6,7 @@ import { isAuthenticated } from './middlewares/isAuthenticated'
 import { CreateEquipmentController } from './controllers/equipment/CreateEquipmentController'
 
 import { CreateSensorDataController } from './controllers/sensor_data/CreateSensorDataController'
+import { ListSensorDataController } from './controllers/sensor_data/ListSensorDataController'
 import { UploadCSVSensorDataController } from './controllers/sensor_data/UploadCSVSensorDataController'
 
 import { AuthUserController } from './controllers/user/AuthUserController'
@@ -19,12 +20,13 @@ const upload = multer()
 router.post('/equipment', isAuthenticated, new CreateEquipmentController().handle)
 
 // -- Routes SENSOR DATA --
+router.get('/sensor_data', isAuthenticated, new ListSensorDataController().handle)
 router.post('/sensor_data', isAuthenticated, new CreateSensorDataController().handle)
 router.post('/sensor_data/upload', isAuthenticated, upload.single('file'), new UploadCSVSensorDataController().handle);
 
 // -- Routes USER --
-router.post('/auth', new AuthUserController().handle)
 router.get('/me', isAuthenticated, new DetailLoggedUserController().handle)
+router.post('/auth', new AuthUserController().handle)
 router.post('/user', new CreateUserController().handle)
 
 export { router }

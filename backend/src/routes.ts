@@ -4,6 +4,7 @@ import multer from 'multer'
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
 import { CreateEquipmentController } from './controllers/equipment/CreateEquipmentController'
+import { ListEquipmentController } from './controllers/equipment/ListEquipmentController'
 
 import { CreateSensorDataController } from './controllers/sensor_data/CreateSensorDataController'
 import { ListSensorDataController } from './controllers/sensor_data/ListSensorDataController'
@@ -17,6 +18,7 @@ const router = Router()
 const upload = multer()
 
 // -- Routes EQUIPMENT --
+router.get('/equipment', isAuthenticated, new ListEquipmentController().handle)
 router.post('/equipment', isAuthenticated, new CreateEquipmentController().handle)
 
 // -- Routes SENSOR DATA --

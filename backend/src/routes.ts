@@ -23,7 +23,7 @@ router.post('/equipment', isAuthenticated, new CreateEquipmentController().handl
 
 // -- Routes SENSOR DATA --
 router.get('/sensor_data', isAuthenticated, new ListSensorDataController().handle)
-router.post('/sensor_data', isAuthenticated, new CreateSensorDataController().handle)
+router.post('/sensor_data', new CreateSensorDataController().handle)
 router.post('/sensor_data/upload', isAuthenticated, upload.single('file'), new UploadCSVSensorDataController().handle);
 
 // -- Routes USER --

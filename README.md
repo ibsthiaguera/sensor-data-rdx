@@ -1,7 +1,5 @@
 
-# desafio-radix
-
-Desafio técnico para a vaga de Desenvolvedor Full Stack Pleno.
+# sensor-data-rdx
 
 ## Tarefas realizadas
 
